@@ -1,0 +1,33 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+build/
+dist/
+target/
+*.iml
+.idea/
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+.dockerignore
+
+# Build artifacts
+*.o
+*.a
+*.so
+
+# Temp files
+*.tmp
+*.log

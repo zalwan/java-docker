@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    stdin_open: true      # Keep stdin open (-i flag)
+    tty: true             # Allocate a pseudo-terminal (-t flag)
+    environment:
+      - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
