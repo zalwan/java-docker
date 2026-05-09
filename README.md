@@ -58,15 +58,35 @@ cd /home/suryawan/projects/java-docker
 ```
 
 ### Step 2: Build the Docker image
+
+**Bash/Zsh:**
 ```bash
 chmod +x run.sh build.sh
 ./build.sh
 ```
+
+**Fish shell:**
+```fish
+bash build.sh
+```
+
 ⏱️ This takes ~30 seconds on first run (downloads Java base image). Subsequent builds are instant.
 
 ### Step 3: Run the application
+
+**Bash/Zsh:**
 ```bash
 ./run.sh
+```
+
+**Fish shell:**
+```fish
+bash run.sh
+```
+
+**Or use docker-compose (works in all shells):**
+```bash
+docker-compose run --rm app
 ```
 
 That's it! You should see the menu and can start typing.
@@ -121,22 +141,96 @@ Goodbye!
 ## 🔧 Running Commands
 
 ### Using run.sh (Recommended)
+
+**Bash:**
 ```bash
 ./run.sh
 ```
+
+**Fish shell:**
+```fish
+bash run.sh
+```
+
 Builds if needed, then runs.
+
+### Using build.sh
+
+**Bash:**
+```bash
+./build.sh
+```
+
+**Fish shell:**
+```fish
+bash build.sh
+```
 
 ### Using docker-compose
 ```bash
 docker-compose run --rm app
 ```
-More direct approach.
+Works the same in bash and fish.
 
 ### Using plain Docker
 ```bash
 docker build -t java-docker-app:latest .
 docker run -it --rm java-docker-app:latest
 ```
+
+---
+
+## 🐚 Shell Compatibility
+
+### Why bash vs fish?
+
+The `run.sh` and `build.sh` scripts are written in **bash** syntax. While most Linux shells are compatible, **fish shell** has different syntax.
+
+| Shell | How to run scripts | Notes |
+|-------|-------------------|-------|
+| bash | `./run.sh` | Default on most Linux systems |
+| zsh | `./run.sh` | macOS default, bash-compatible |
+| fish | `bash run.sh` | Must explicitly use bash |
+| PowerShell | `bash run.sh` (on Windows with Git Bash) | Use bash version |
+
+### Quick Reference
+
+**In Fish:**
+```fish
+# Make scripts executable (one time)
+chmod +x run.sh build.sh
+
+# Run with bash
+bash run.sh
+bash build.sh
+
+# Or run docker-compose directly (no bash needed)
+docker-compose run --rm app
+```
+
+**In Bash/Zsh:**
+```bash
+# Make scripts executable (one time)
+chmod +x run.sh build.sh
+
+# Run directly
+./run.sh
+./build.sh
+```
+
+### Docker Compose in Fish (Recommended)
+
+The easiest approach in fish shell is to skip the shell scripts entirely and use docker-compose directly:
+
+```fish
+# Build
+docker-compose build
+
+# Run
+docker-compose run --rm app
+```
+
+No compatibility issues, works the same everywhere!
 
 ## ✏️ Making Changes to the Code
 
